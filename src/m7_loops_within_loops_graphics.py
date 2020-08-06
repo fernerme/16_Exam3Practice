@@ -90,7 +90,7 @@ def hourglass(window, n, point, radius, color):
     a color that rosegraphics understands.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -103,18 +103,28 @@ def hourglass(window, n, point, radius, color):
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # ------------------------------------------------------------------
     for k in range(-n+1, n):
-        x_coor = point.x - radius*abs(k)
-        y_coor = point.y + math.sqrt(3)*radius*k
-        circle = rg.Circle(rg.Point(x_coor, y_coor), radius)
-        circle.fill_color = color
-        circle.attach_to(window)
+        for j in range(abs(k)+1):
+            x_coor = point.x - radius*abs(k) + 2*radius*j
+            y_coor = point.y + math.sqrt(3)*radius*k
+            circle = draw_circle(x_coor, y_coor, radius, color, window)
+            draw_line(circle, window)
     window.render()
 
+def draw_circle(x, y, radius, color, window):
+    """ Draws (and returns) circle of given color/radius with center at given coordinates."""
+    circle = rg.Circle(rg.Point(x, y), radius)
+    circle.fill_color = color
+    circle.attach_to(window)
+    return circle
 
-def draw_line(circle):
+
+def draw_line(circle, window):
     """ Draws horizontal line thru given circle"""
     x1 = circle.center.x - circle.radius
-    x2 = circle.center.y - circle.radius
+    x2 = circle.center.x + circle.radius
+    line = rg.Line(rg.Point(x1, circle.center.y), rg.Point(x2, circle.center.y))
+    line.attach_to(window)
+
 
 def run_test_many_hourglasses():
     """ Tests the    many_hourglasses    function. """
