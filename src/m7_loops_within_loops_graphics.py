@@ -202,6 +202,26 @@ def many_hourglasses(window, square, m, colors):
     #                         a correct "hourglass" function above)
     #    TIME ESTIMATE:  20 minutes (warning: this problem is challenging)
     # ------------------------------------------------------------------
+    radius = 0.5*square.length_of_each_side
+    center_x = square.center.x
+    center_y = square.center.y
+    color_index = 0
+    for k in range(1, m+1):
+        hourglass(window, k, rg.Point(center_x, center_y), radius, colors[color_index])
+
+        ulc_x = center_x - radius*k
+        ulc_y = center_y + radius*k
+        lrc_x = center_x + radius*k
+        lrc_y = center_y - radius*k
+        rect = rg.Rectangle(rg.Point(ulc_x, ulc_y), rg.Point(lrc_x, lrc_y))
+        rect.attach_to(window)
+
+        center_x = center_x + 2*k*radius + radius
+        if color_index + 1 < len(colors):
+            color_index = color_index + 1
+        else:
+            color_index = 0
+    window.render()
 
 
 # ----------------------------------------------------------------------
