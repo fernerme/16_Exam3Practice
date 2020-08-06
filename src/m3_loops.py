@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -135,6 +135,22 @@ def run_test_practice_problem3():
     #             that they are adequate tests!
     ####################################################################
 
+    # Test 15:
+    expected = [-6]
+    actual = practice_problem3(-10, 1, 1)
+    print()
+    print('Test 15:')
+    print('  Expected:', expected)
+    print('  Actual:  ', actual)
+
+    # Test 16:
+    expected = [-6, -5, 1, 7]
+    actual = practice_problem3(-10, 4, 1)
+    print()
+    print('Test 16:')
+    print('  Expected:', expected)
+    print('  Actual:  ', actual)
+
 
 def practice_problem3(start, n, threshold):
     """
@@ -208,7 +224,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -216,6 +232,13 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
+    list_of_int = []
+    k = start
+    while len(list_of_int) < n:
+        if math.cos(k) + math.sin(k) > threshold:
+            list_of_int = list_of_int + [k]
+        k = k + 1
+    return list_of_int
 
 
 # ----------------------------------------------------------------------
