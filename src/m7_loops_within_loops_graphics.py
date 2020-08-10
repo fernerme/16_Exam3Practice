@@ -210,9 +210,9 @@ def many_hourglasses(window, square, m, colors):
         hourglass(window, k, rg.Point(center_x, center_y), radius, colors[color_index])
 
         ulc_x = center_x - radius*k
-        ulc_y = center_y + radius*k
+        ulc_y = center_y + ((2*k)-1)*radius
         lrc_x = center_x + radius*k
-        lrc_y = center_y - radius*k
+        lrc_y = center_y - ((2*k)-1)*radius
         rect = rg.Rectangle(rg.Point(ulc_x, ulc_y), rg.Point(lrc_x, lrc_y))
         rect.attach_to(window)
 
