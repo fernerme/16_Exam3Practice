@@ -110,6 +110,7 @@ def hourglass(window, n, point, radius, color):
             draw_line(circle, window)
     window.render()
 
+
 def draw_circle(x, y, radius, color, window):
     """ Draws (and returns) circle of given color/radius with center at given coordinates."""
     circle = rg.Circle(rg.Point(x, y), radius)
